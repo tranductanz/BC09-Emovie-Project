@@ -27,9 +27,9 @@ const HomeCarousel = (props) => {
   //     TokenCybersoft: TokenCybersoft
   //   }
   // })
-  
+
   useEffect(() => {
-    dispatch(getCarouselAction);
+    dispatch(getCarouselAction());
   }, [])
 
 
@@ -38,7 +38,7 @@ const HomeCarousel = (props) => {
     return arrImg.map((item, index) => {
       return <div key={index}>
         <div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}>
-          <img className="w-full opacity-0" src={item.hinhAnh} alt="Banner" />
+          <img className="w-full opacity-0" src={item.hinhAnh} alt={item.hinhAnh} />
         </div>
       </div>
 

@@ -20,8 +20,12 @@ const Header = (props) => {
                     </li>
                 </ul>
                 <div className="items-center flex-shrink-0 hidden lg:flex">
-                    <button className="self-center px-8 py-3 rounded text-white hover:text-red-600">Sign in</button>
-                    <button className="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50 text-white hover:text-red-600">Sign up</button>
+                    <NavLink to="/login">
+                        <button className="self-center px-8 py-3 rounded text-white hover:text-red-600">Sign in</button>
+                    </NavLink>
+                    <NavLink to="/register">
+                        <button className="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50 text-white hover:text-red-600">Sign up</button>
+                    </NavLink>
                 </div>
                 <button className="p-4 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-coolGray-800">
@@ -34,4 +38,4 @@ const Header = (props) => {
     )
 }
 
-export default Header
+export default Header;
