@@ -1,67 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeMenu from './HomeMenu'
 import { Card } from 'antd';
-
-const { Meta } = Card;
+import { useDispatch, useSelector } from 'react-redux';
+import Film from '../../components/Film/Film';
+import MultipleRows from '../../components/ReactSlick/MultipleRowSlick';
+import { layDanhSachPhimAction } from '../../redux/actions/FilmAction';
 
 const Home = (props) => {
+
+    const { arrFilm } = useSelector(state => state.FilmReducer)
+    console.log(arrFilm)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(layDanhSachPhimAction());
+    }, [])
+
     return (
-        <div className="">
-            <div className="flex justify-center">
-                <div className="p-10">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="w-full" src="https://picsum.photos/200" alt="Mountain" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">Mountain</div>
-                            <p className="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="p-10">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="w-full" src="https://picsum.photos/200" alt="Mountain" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">Mountain</div>
-                            <p className="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="p-10">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="w-full" src="https://picsum.photos/200" alt="Mountain" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">Mountain</div>
-                            <p className="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <section className="text-gray-600 body-font">
+                <div className='container px-5 py-24 mx-auto'>
+                    <MultipleRows arrFilm={arrFilm} />
+                    {/* <div className="flex justify-center">
+                        {renderFilms()}
+                    </div> */}
 
-            <div className=" flex justify-center">
+                </div>
+            </section>
+            <div className="mx-36">
                 <HomeMenu />
-            </div>
 
+            </div>
         </div>
     )
 }

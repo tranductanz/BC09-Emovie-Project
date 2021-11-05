@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Carousel } from 'antd';
 import axios from 'axios';
 import { getCarouselAction } from '../../../../redux/actions/CarouselAction';
-
+import './HomeCarousel.css';
 
 const contentStyle = {
-  height: '600px',
+  height: '500px',
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
@@ -46,7 +46,7 @@ const HomeCarousel = (props) => {
   }
 
   return (
-    <Carousel effect="fade">
+    <Carousel className="test" effect="fade">
       {renderImg()}
     </Carousel>
   )

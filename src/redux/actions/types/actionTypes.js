@@ -1,1 +1,2 @@
 export const SET_CAROUSEL = 'SET_CAROUSEL';
+export const SET_DANH_SACH_PHIM = 'SET_DANH_SACH_PHIM'
