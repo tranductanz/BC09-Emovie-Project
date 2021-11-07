@@ -4,7 +4,7 @@ const Film = (props) => {
 
 
     const { phim } = props;
-    console.log(phim);
+    
     return (
         <div className="p-1 w-full h-full">
             <div className="max-w-sm rounded overflow-hidden shadow-lg">

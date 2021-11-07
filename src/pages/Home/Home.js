@@ -6,6 +6,7 @@ import Film from '../../components/Film/Film';
 import MultipleRows from '../../components/ReactSlick/MultipleRowSlick';
 import { layDanhSachPhimAction } from '../../redux/actions/FilmAction';
 import { layDanhSachHeThongRapAction } from '../../redux/actions/CinemraAction';
+import HomeCarousel from '../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel';
 
 const Home = (props) => {
 
@@ -22,7 +23,7 @@ const Home = (props) => {
 
     return (
         <div>
-
+            <HomeCarousel />
             <section className="text-gray-600 body-font">
                 <div className='container px-5 py-24 mx-auto'>
                     <MultipleRows arrFilm={arrFilm} />

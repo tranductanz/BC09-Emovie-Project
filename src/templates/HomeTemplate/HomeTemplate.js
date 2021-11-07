@@ -15,7 +15,7 @@ export const HomeTemplate = (props) => {
         //props.match,
         return <Fragment>
             <Header {...propsRoute} />
-            <HomeCarousel {...propsRoute} />
+            
             <Component {...propsRoute} />
             <FooterPage {...propsRoute} />
         </Fragment>

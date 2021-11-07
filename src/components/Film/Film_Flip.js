@@ -1,6 +1,7 @@
 import React from 'react'
 import './Film_Flip.css';
 import { PlayCircleOutlined } from '@ant-design/icons'
+import { history } from '../../App';
 const Film_Flip = (props) => {
 
     const { phim } = props;
@@ -24,7 +25,11 @@ const Film_Flip = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-orange-300 text-center cursor-pointer py-2 bg-indigo-300 my-2 text-success-50 font-bold">ĐẶT VÉ</div>
+            <div
+                onClick={() => {
+                    history.push(`/detail/${phim.maPhim}`)
+                }}
+                className="bg-orange-300 text-center cursor-pointer py-2 bg-indigo-300 my-2 text-success-50 font-bold">ĐẶT VÉ</div>
         </div>
 
     )
