@@ -1,6 +1,6 @@
 import axios from "axios";
 import { DOMAIN, TOKENCYBERSOFT } from "../../util/config";
-import { SET_CHI_TIET_FILM, SET_HE_THONG_RAP_CHIEU } from "./types/actionTypes";
+import { SET_CHI_TIET_FILM, SET_HE_THONG_RAP_CHIEU, SET_LICH_CHIEU_FILM } from "./types/actionTypes";
 
 
 
@@ -49,6 +49,31 @@ export const layThongTinChiTietFilmAction = (id) => {
                 type: SET_CHI_TIET_FILM,
                 filmDetail: result.data.content,
             })
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
+
+export const layThongTinLichChieuTheoFilmAction = (id) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: 'https://movienew.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim',
+                method: 'GET',
+                params: {
+                    MaPhim: id,
+                },
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT
+                }
+            })
+            dispatch({
+                type: SET_LICH_CHIEU_FILM,
+                filmSchedule: result.data.content
+            })
+            // console.log(result.data.content)
         }
         catch (err) {
             console.log(err);

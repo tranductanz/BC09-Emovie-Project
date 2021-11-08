@@ -8,8 +8,6 @@ const FooterPage = (props) => {
     const { heThongRapChieu } = useSelector(state => state.CinemaReducer);
 
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo']))
-
-    console.log(arrHeThongRap)
     return (
         <footer className="px-4 divide-y bg-coolGray-100 text-coolGray-800 bg-opacity-80 bg-black">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">

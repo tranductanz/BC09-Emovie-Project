@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { SET_CHI_TIET_FILM, SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../actions/types/actionTypes";
+import { SET_CHI_TIET_FILM, SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU, SET_LICH_CHIEU_FILM } from "../actions/types/actionTypes";
 
 const initialState = {
     arrFilm: [
@@ -24,6 +24,7 @@ const initialState = {
     arrFilmDefault: [],
 
     filmDetail: {},
+    filmSchedule: [],
 }
 
 
@@ -50,6 +51,10 @@ export const FilmReducer = (state = initialState, action) => {
         case SET_CHI_TIET_FILM: {
             state.filmDetail = action.filmDetail
             return { ...state }
+        }
+        case SET_LICH_CHIEU_FILM: {
+            state.filmSchedule = action.filmSchedule;
+            return { ...state };
         }
         default:
             return { ...state };
