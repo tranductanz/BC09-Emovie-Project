@@ -1,3 +1,4 @@
+import { Box } from '@mui/system';
 import React, { Fragment } from 'react'
 import { Route } from 'react-router';
 import FooterPage from './Layout/Footer/Footer';
@@ -15,8 +16,10 @@ export const HomeTemplate = (props) => {
         //props.match,
         return <Fragment>
             <Header {...propsRoute} />
-            
-            <Component {...propsRoute} />
+            <Box sx={{ backgroundColor: '#90A4AE' }}>
+                <Component {...propsRoute} />
+            </Box>
+
             <FooterPage {...propsRoute} />
         </Fragment>
     }} />
