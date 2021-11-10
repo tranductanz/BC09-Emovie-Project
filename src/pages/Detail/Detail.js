@@ -98,7 +98,7 @@ function Detail(props) {
                                                 </div>
                                                 <div className="thong-tin-lich-chieu-phim grid grid-cols-4">
                                                     {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                                        return <NavLink to="/" className="col-span-1 text-green-300 font-bold" key={index}>
+                                                        return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} className="col-span-1 text-green-300 font-bold" key={index}>
                                                             {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                         </NavLink>
                                                     })}
