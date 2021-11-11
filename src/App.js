@@ -13,6 +13,7 @@ import Checkout from './pages/Checkout/Checkout';
 import { Suspense, lazy } from 'react';
 import LazyLoading from './templates/CheckoutTemplate/LazyLoading';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
+import Loading from './components/Loading/Loading';
 
 const CheckoutTemplateLazyLoading = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'));
 export const history = createBrowserHistory();
@@ -20,14 +21,14 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
+      <Loading />
       <Switch>
-
         <HomeTemplate path="/contact" Component={Contact} />
         <HomeTemplate path="/news" Component={News} />
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
 
-        <Route path="/register" component={Register} />
+        <UserTemplate path="/register" exact Component={Register} />
 
 
         <UserTemplate path="/login" exact Component={Login} />

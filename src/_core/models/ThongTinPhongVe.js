@@ -17,7 +17,7 @@ export class ThongTinPhim {
 }
 
 export class Ghe {
-    maGhe = '';
+    maGhe = 0;
     tenGhe = '';
     mapRap = '';
     loaiGhe = '';

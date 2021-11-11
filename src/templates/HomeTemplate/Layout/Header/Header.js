@@ -1,8 +1,19 @@
 import React from 'react'
+import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../../../../src/assets/image/Logo.png';
 import { history } from '../../../../App';
+import { TOKEN } from '../../../../util/config';
 const Header = (props) => {
+    const handleLogout = () => {
+        localStorage.clear();
+        history.push('/');
+        alert("Đã đăng xuất thành công");
+        window.location.reload();
+    }
+    const { userLogin } = useSelector(state => state.UserManageReducer);
+    console.log(userLogin)
     return (
         <header className="p-4 bg-coolGray-100 text-coolGray-800 bg-opacity-40 bg-black text-white fixed w-full z-10">
             <div className="container flex justify-between h-16 mx-auto">
@@ -22,13 +33,20 @@ const Header = (props) => {
                 </ul>
                 <div className="items-center flex-shrink-0 hidden lg:flex">
 
-                    <button onClick={() => {
-                        history.push('/login')
-                    }} className="self-center px-8 py-3 rounded text-white hover:text-red-600">Sign in</button>
+                    {userLogin && localStorage.getItem(TOKEN) !== null ? <Fragment> <div
+                        className="self-center px-8 py-3 rounded text-white hover:text-red-600">Hello {userLogin.hoTen}</div>
+                        <button onClick={handleLogout}>
+                            Logout
+                        </button>
+                    </Fragment> : <Fragment>
+                        <button onClick={() => {
+                            history.push('/login')
+                        }} className="self-center px-8 py-3 rounded text-white hover:text-red-600">Sign in</button>
 
-                    <NavLink to="/register">
-                        <button className="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50 text-white hover:text-red-600">Sign up</button>
-                    </NavLink>
+                        <NavLink to="/register">
+                            <button className="self-center px-8 py-3 font-semibold rounded bg-violet-600 text-coolGray-50 text-white hover:text-red-600">Sign up</button>
+                        </NavLink>
+                    </Fragment>}
                 </div>
                 <button className="p-4 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-coolGray-800">
