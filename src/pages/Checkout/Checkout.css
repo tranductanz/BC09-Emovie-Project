@@ -12,6 +12,7 @@ color: #fff;
 .gheDaDat{
     background-color: rgb(232,76,76);
     cursor: no-drop;
+    
 }
 
 .gheDangDat {
@@ -19,5 +20,11 @@ color: #fff;
 }
 
 .gheVip {
-    background-color: rgb(228,74,8);
+    background-color: yellow;
+    color: black;
+}
+
+.gheDaDuocDat{
+    background-color: cyan;
+    color: red;
 }

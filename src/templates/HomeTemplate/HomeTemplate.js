@@ -16,9 +16,8 @@ export const HomeTemplate = (props) => {
         //props.match,
         return <Fragment>
             <Header {...propsRoute} />
-            <Box sx={{ backgroundColor: '#90A4AE' }}>
-                <Component {...propsRoute} />
-            </Box>
+            <Component {...propsRoute} />
+
 
             <FooterPage {...propsRoute} />
         </Fragment>

@@ -1,5 +1,5 @@
 import { TOKEN, USER_LOGIN } from "../../util/config";
-import { NGUOI_DUNG_DANG_NHAP } from "../actions/types/actionTypes";
+import { NGUOI_DUNG_DANG_NHAP, SET_THONG_TIN_NGUOI_DUNG } from "../actions/types/actionTypes";
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -8,6 +8,10 @@ if (localStorage.getItem(USER_LOGIN)) {
 
 const initialState = {
     userLogin: user,
+
+    thongTinNguoiDung: {
+
+    }
 }
 
 
@@ -22,6 +26,11 @@ export const UserManageReducer = (state = initialState, action) => {
             console.log(state.userLogin);
             return { ...state }
 
+        }
+
+        case SET_THONG_TIN_NGUOI_DUNG: {
+            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            return { ...state }
         }
         default:
             return { ...state };
