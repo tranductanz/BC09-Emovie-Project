@@ -32,7 +32,9 @@ const Login = (props) => {
             <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
                 <div className="cursor-pointer flex items-center">
                     <div>
-                        <img src={LogoBrand} style={{ width: 150 }} />
+                        <NavLink to="/">
+                            <img src={LogoBrand} style={{ width: 150 }} />
+                        </NavLink>
                     </div>
                     <div className="text-xl text-red-500 tracking-wide ml-2 font-semibold">Cinema</div>
                 </div>
@@ -52,10 +54,10 @@ const Login = (props) => {
                                     Mật Khẩu
                                 </div>
                                 <div>
-                                    <a className="text-xs font-display font-semibold text-red-500 hover:text-indigo-800
+                                    <NavLink to="/register" className="text-xs font-display font-semibold text-red-500 hover:text-indigo-800
                                   cursor-pointer">
                                         Quên mật khẩu?
-                                    </a>
+                                    </NavLink>
                                 </div>
                             </div>
                             <input type="password" name="matKhau" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập mật khẩu" />
