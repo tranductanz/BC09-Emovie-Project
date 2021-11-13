@@ -164,7 +164,7 @@ const AddNewFilm = () => {
 
                 {/* Rating */}
                 <Form.Item label="Đánh giá số sao">
-                    <InputNumber onChange={handleChangeSwitch('danhGia')} />
+                    <InputNumber min={1} max={10} onChange={handleChangeSwitch('danhGia')} />
                 </Form.Item>
 
                 {/* Upload Image */}

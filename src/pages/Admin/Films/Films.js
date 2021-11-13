@@ -36,7 +36,7 @@ function Films() {
             width: 50,
             render: (text, film, index) => {
                 return <Fragment>
-                    <img
+                    <img key={index}
                         onError={(e) => { e.target.onError = null; e.target.src = `https://picsum.photos/id/${index}/50/50` }}
                         width={50}
                         height={50}
@@ -64,8 +64,8 @@ function Films() {
             dataIndex: 'moTa',
             width: 100,
             sortDirections: ['descend', 'ascend'],
-            render: (text, film) => {
-                return <Fragment>
+            render: (text, film, index) => {
+                return <Fragment key={index}>
                     {film.moTa.length > 100 ? film.moTa.substr(0, 50) + '...' : film.moTa}
                 </Fragment>
             }
@@ -74,17 +74,21 @@ function Films() {
             title: 'Hành động',
             dataIndex: 'hanhDong',
             width: 100,
-            render: (text, film) => {
-                return <Fragment>
-                    <NavLink style={{ color: 'blue' }} to="/" className="text-black text-2xl mr-2"><EditOutlined /></NavLink>
-                    <NavLink style={{ color: 'red' }} to="/" className="text-white text-2xl"><DeleteOutlined /></NavLink>
+            render: (text, film, index) => {
+                return <Fragment key={index}>
+                    <NavLink key={1} style={{ color: 'blue' }} to={`/admin/films/edit/${film.maPhim}`} className="text-black text-2xl mr-2"><EditOutlined /></NavLink>
+                    <span onClick={() => {
+                        if (window.confirm('Bạn có muốn chắc xoá phim' + film.tenPhim)) {
+                            //action
+                        }
+                    }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl"><DeleteOutlined /></span>
                 </Fragment>
             }
         },
     ];
     const data = arrFilmDefault
     function onChange(pagination, filters, sorter, extra) {
-        console.log('params', pagination, filters, sorter, extra);
+        // console.log('params', pagination, filters, sorter, extra);
     }
     const { Search } = Input;
 
@@ -104,7 +108,7 @@ function Films() {
                 size="large"
                 onSearch={onSearch}
             />
-            <Table columns={columns} dataSource={data} onChange={onChange} />
+            <Table rowKey={"maPhim"} columns={columns} dataSource={data} onChange={onChange} />
         </div>
     )
 }
