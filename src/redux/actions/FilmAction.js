@@ -110,13 +110,19 @@ export const xoaPhimAction = (maPhim) => {
                 method: 'DELETE',
                 params: {
                     MaPhim: maPhim
+                },
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                    Authorization: "Bearer " + localStorage.getItem(TOKEN),
                 }
             })
+            console.log(result.data.content);
             alert("Xoá phim thành công");
-            
+            dispatch(layDanhSachPhimAction());
+
         }
         catch (err) {
-            console.log(err);
+            console.log(err.response?.data);
         }
     }
 }
