@@ -6,6 +6,7 @@ import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction } from '../../../redux/actions/FilmAction';
 import { NavLink } from 'react-router-dom';
+import { history } from '../../../App';
 function Films() {
 
     const { arrFilmDefault } = useSelector(state => state.FilmReducer);
@@ -27,7 +28,7 @@ function Films() {
             // here is that finding the name started with `value`
             sorter: (a, b) => a.maPhim - b.maPhim,
             sortDirections: ['descend', 'ascend'],
-            // sortOrder: 'descend',
+            // sortOrder: ['descend', 'ascend'],
         },
         {
             title: 'Hình Ảnh',
@@ -93,7 +94,9 @@ function Films() {
         <div>
 
             <h3 className="text-4xl">Quản lý Phim</h3>
-            <Button className="mb-5">Thêm Phim</Button>
+            <Button onClick={() => {
+                history.push('/admin/films/addnew');
+            }} className="mb-5">Thêm Phim</Button>
             <Search
                 className="mb-5"
                 placeholder="Tìm kiếm phim"

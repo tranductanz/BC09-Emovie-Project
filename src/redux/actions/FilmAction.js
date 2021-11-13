@@ -29,3 +29,23 @@ export const layDanhSachPhimAction = () => {
         }
     }
 }
+
+export const themPhimUploadHinhAction = (formData) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
+                method: "POST",
+                data: formData,
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT
+                }
+            })
+            alert('Thêm phim thành công');
+            console.log(result);
+        }
+        catch (err) {
+            console.log(err.response?.data);
+        }
+    }
+}

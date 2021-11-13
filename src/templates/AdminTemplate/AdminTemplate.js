@@ -34,13 +34,19 @@ const AdminTemplate = (props) => {
                 <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
                     <img src={LogoBrand} />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1" icon={<PieChartOutlined />}>
+                        <Menu.Item key="1" icon={<UserOutlined />}>
                             <NavLink to="/admin/users">Users</NavLink>
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<DesktopOutlined />}>
-                            <NavLink to="/admin/films">Films</NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="3" icon={<FileOutlined />}>
+                        <SubMenu key="sub1" icon={<FileOutlined />} title="User">
+                            <Menu.Item key="10" icon={<FileOutlined />}>
+                                <NavLink to="/admin/films">Films</NavLink>
+                            </Menu.Item>
+
+                            <Menu.Item key="11" icon={<FileOutlined />}>
+                                <NavLink to="/admin/films/addnew">Add News</NavLink>
+                            </Menu.Item>
+                        </SubMenu>
+                        <Menu.Item key="4" icon={<DesktopOutlined />}>
                             <NavLink to="/admin/showtime">Showtime</NavLink>
                         </Menu.Item>
                     </Menu>
