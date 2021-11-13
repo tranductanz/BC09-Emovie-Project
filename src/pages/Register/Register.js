@@ -38,7 +38,9 @@ const Register = (props) => {
             <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
                 <div className="cursor-pointer flex items-center">
                     <div>
-                        <img src={LogoBrand} style={{ width: 150 }} />
+                        <NavLink to="/">
+                            <img src={LogoBrand} style={{ width: 150 }} />
+                        </NavLink>
                     </div>
                     <div className="text-xl text-red-500 tracking-wide ml-2 font-semibold">Cinema</div>
                 </div>
