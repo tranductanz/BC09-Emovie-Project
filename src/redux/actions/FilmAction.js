@@ -5,29 +5,52 @@ import { SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM_CHINH_SUA } from "./types/action
 
 
 
-
-export const layDanhSachPhimAction = () => {
+// https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=black
+export const layDanhSachPhimAction = (tenPhim = '') => {
     return async (dispatch) => {
+        if (tenPhim.trim() != '') {
+            try {
+                const result = await axios({
+                    url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim`,
+                    method: 'GET',
+                    params: {
+                        maNhom: "GP01",
+                        tenPhim: tenPhim,
+                    },
+                    headers: {
+                        TokenCybersoft: TOKENCYBERSOFT
+                    }
+                });
 
-        try {
-            const result = await axios({
-                url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim`,
-                method: 'GET',
-                params: {
-                    maNhom: "GP01",
-                },
-                headers: {
-                    TokenCybersoft: TOKENCYBERSOFT
-                }
-            });
+                dispatch({
+                    type: SET_DANH_SACH_PHIM,
+                    arrFilm: result.data.content,
+                })
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            try {
+                const result = await axios({
+                    url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim`,
+                    method: 'GET',
+                    params: {
+                        maNhom: "GP01",
+                    },
+                    headers: {
+                        TokenCybersoft: TOKENCYBERSOFT
+                    }
+                });
 
-            dispatch({
-                type: SET_DANH_SACH_PHIM,
-                arrFilm: result.data.content,
-            })
-        } catch (err) {
-            console.log(err);
+                dispatch({
+                    type: SET_DANH_SACH_PHIM,
+                    arrFilm: result.data.content,
+                })
+            } catch (err) {
+                console.log(err);
+            }
         }
+
     }
 }
 

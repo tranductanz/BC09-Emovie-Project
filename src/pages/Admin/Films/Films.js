@@ -94,7 +94,11 @@ function Films() {
     const { Search } = Input;
 
 
-    const onSearch = value => console.log(value);
+    const onSearch = value => {
+        console.log(value);
+        //API
+        dispatch(layDanhSachPhimAction(value));
+    };
     return (
         <div>
 
