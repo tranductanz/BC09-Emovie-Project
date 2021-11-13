@@ -18,6 +18,7 @@ import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
 import { Dashboard } from './pages/Admin/Dashboard/Dashboard';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import AddNewFilm from './pages/Admin/Films/AddNew/AddNewFilm';
 
 
 const CheckoutTemplateLazyLoading = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'));
@@ -28,11 +29,14 @@ function App() {
     <Router history={history}>
       <Loading />
       <Switch>
-        <AdminTemplate path="/admin" exact Component={Dashboard} />
-        <AdminTemplate path="/admin/showtime" Component={Showtime} />
+
+        <AdminTemplate path="/admin/showtime" exact Component={Showtime} />
+        <AdminTemplate path="/admin/films/addnew" exact Component={AddNewFilm} />
+        <AdminTemplate path="/admin/films/edit/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films" Component={Films} />
 
         <AdminTemplate path="/admin/users" exact Component={Dashboard} />
+        <AdminTemplate path="/admin" exact Component={Dashboard} />
         <HomeTemplate path="/contact" Component={Contact} />
         <HomeTemplate path="/news" Component={News} />
         <HomeTemplate path="/home" exact Component={Home} />
