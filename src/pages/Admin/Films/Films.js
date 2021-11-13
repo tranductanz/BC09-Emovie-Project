@@ -4,7 +4,7 @@ import { Input, Space } from 'antd';
 import { AudioOutlined, DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachPhimAction } from '../../../redux/actions/FilmAction';
+import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/FilmAction';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
 function Films() {
@@ -80,6 +80,7 @@ function Films() {
                     <span onClick={() => {
                         if (window.confirm('Bạn có muốn chắc xoá phim' + film.tenPhim)) {
                             //action
+                            dispatch(xoaPhimAction(film.maPhim))
                         }
                     }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl"><DeleteOutlined /></span>
                 </Fragment>
