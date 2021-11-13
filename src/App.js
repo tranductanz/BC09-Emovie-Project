@@ -19,6 +19,7 @@ import Showtime from './pages/Admin/Showtime/Showtime';
 import { Dashboard } from './pages/Admin/Dashboard/Dashboard';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import AddNewFilm from './pages/Admin/Films/AddNew/AddNewFilm';
+import EditFilm from './pages/Admin/Films/Edit/EditFilm';
 
 
 const CheckoutTemplateLazyLoading = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'));
