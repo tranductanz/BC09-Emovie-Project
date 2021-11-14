@@ -1,4 +1,4 @@
-import { SET_CAROUSEL } from "../actions/types/actionTypes";
+import { SET_CAROUSEL } from "../actions/types/actionTypes.js";
 
 const initialState = {
     arrImg: [

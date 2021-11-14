@@ -1,6 +1,6 @@
-import Profile from "../../pages/Profile/Profile";
-import { TOKEN, USER_LOGIN } from "../../util/config";
-import { NGUOI_DUNG_DANG_NHAP, SET_DANH_SACH_NGUOI_DUNG, SET_FULL_INFO_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from "../actions/types/actionTypes";
+import Profile from "../../pages/Profile/Profile.js";
+import { TOKEN, USER_LOGIN } from "../../util/config.js";
+import { NGUOI_DUNG_DANG_NHAP, SET_DANH_SACH_NGUOI_DUNG, SET_FULL_INFO_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from "../actions/types/actionTypes.js";
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {

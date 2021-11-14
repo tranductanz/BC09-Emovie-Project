@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import HomeMenu from './HomeMenu'
 import { Card } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import Film from '../../components/Film/Film';
-import MultipleRows from '../../components/ReactSlick/MultipleRowSlick';
-import { layDanhSachPhimAction } from '../../redux/actions/FilmAction';
-import { layDanhSachHeThongRapAction } from '../../redux/actions/CinemraAction';
+import Film from '../../components/Film/Film.js';
+import MultipleRows from '../../components/ReactSlick/MultipleRowSlick.js';
+import { layDanhSachPhimAction } from '../../redux/actions/FilmAction.js';
+import { layDanhSachHeThongRapAction } from '../../redux/actions/CinemraAction.js';
 import HomeCarousel from '../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel';
 
 const Home = (props) => {

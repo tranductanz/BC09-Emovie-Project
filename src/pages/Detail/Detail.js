@@ -4,7 +4,7 @@ import '@tsamantanis/react-glassmorphism/dist/index.css'
 import '../../assets/styles/circle.css';
 import { Tabs, Radio, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachHeThongRapAction, layThongTinChiTietFilmAction, layThongTinLichChieuTheoFilmAction } from '../../redux/actions/CinemraAction';
+import { layDanhSachHeThongRapAction, layThongTinChiTietFilmAction, layThongTinLichChieuTheoFilmAction } from '../../redux/actions/CinemraAction.js';
 import moment from 'moment';
 import { Rate } from 'antd';
 import { NavLink } from 'react-router-dom';

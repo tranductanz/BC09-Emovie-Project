@@ -1,31 +1,31 @@
 import './App.css';
 import { createBrowserHistory } from 'history'
 import { Route, Router, Switch } from 'react-router';
-import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
-import Home from './pages/Home/Home';
-import Contact from './pages/Contact/Contact';
-import News from './pages/News/News';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import Detail from './pages/Detail/Detail';
-import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
+import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate.js';
+import Home from './pages/Home/Home.js';
+import Contact from './pages/Contact/Contact.js';
+import News from './pages/News/News.js';
+import Login from './pages/Login/Login.js';
+import Register from './pages/Register/Register.js';
+import Detail from './pages/Detail/Detail.js';
+import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate.js';
 import Checkout from './pages/Checkout/Checkout';
 import { Suspense, lazy } from 'react';
 import LazyLoading from './templates/CheckoutTemplate/LazyLoading';
-import { UserTemplate } from './templates/UserTemplate/UserTemplate';
-import Loading from './components/Loading/Loading';
-import Films from './pages/Admin/Films/Films';
-import Showtime from './pages/Admin/Showtime/Showtime';
-import { Dashboard } from './pages/Admin/Dashboard/Dashboard';
-import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
-import AddNewFilm from './pages/Admin/Films/AddNew/AddNewFilm';
-import EditFilm from './pages/Admin/Films/Edit/EditFilm';
-import Profile from './pages/Profile/Profile';
-import EditProFile from './pages/Profile/EditProfile/EditProFile';
-import Users from './pages/Admin/User/User';
+import { UserTemplate } from './templates/UserTemplate/UserTemplate.js';
+import Loading from './components/Loading/Loading.js';
+import Films from './pages/Admin/Films/Films.js';
+import Showtime from './pages/Admin/Showtime/Showtime.js';
+import { Dashboard } from './pages/Admin/Dashboard/Dashboard.js';
+import AdminTemplate from './templates/AdminTemplate/AdminTemplate.js';
+import AddNewFilm from './pages/Admin/Films/AddNew/AddNewFilm.js';
+import EditFilm from './pages/Admin/Films/Edit/EditFilm.js';
+import Profile from './pages/Profile/Profile.js';
+import EditProFile from './pages/Profile/EditProfile/EditProFile.js';
+import Users from './pages/Admin/User/User.js';
 
 
-const CheckoutTemplateLazyLoading = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate'));
+const CheckoutTemplateLazyLoading = lazy(() => import('./templates/CheckoutTemplate/CheckoutTemplate.js'));
 export const history = createBrowserHistory();
 
 function App() {

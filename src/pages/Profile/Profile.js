@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { layFullInfoNguoiDungAction } from '../../redux/actions/UserManageAction';
+import { layFullInfoNguoiDungAction } from '../../redux/actions/UserManageAction.js';
 
 export default function Profile() {
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { history } from "../../App";
-import { DOMAIN, TOKEN, TOKENCYBERSOFT } from "../../util/config";
-import { SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM_CHINH_SUA } from "./types/actionTypes";
+import { DOMAIN, TOKEN, TOKENCYBERSOFT } from "../../util/config.js";
+import { SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM_CHINH_SUA } from "./types/actionTypes.js";
 
 
 

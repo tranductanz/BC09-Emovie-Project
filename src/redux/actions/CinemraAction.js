@@ -1,6 +1,6 @@
 import axios from "axios";
-import { DOMAIN, TOKENCYBERSOFT } from "../../util/config";
-import { SET_CHI_TIET_FILM, SET_HE_THONG_RAP_CHIEU, SET_LICH_CHIEU_FILM } from "./types/actionTypes";
+import { DOMAIN, TOKENCYBERSOFT } from "../../util/config.js";
+import { SET_CHI_TIET_FILM, SET_HE_THONG_RAP_CHIEU, SET_LICH_CHIEU_FILM } from "./types/actionTypes.js";
 
 
 

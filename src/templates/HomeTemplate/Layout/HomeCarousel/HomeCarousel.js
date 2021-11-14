@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Carousel } from 'antd';
 import axios from 'axios';
-import { getCarouselAction } from '../../../../redux/actions/CarouselAction';
+import { getCarouselAction } from '../../../../redux/actions/CarouselAction.js';
 import './HomeCarousel.css';
 
 const contentStyle = {

@@ -1,11 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import { CarouselReducer } from "./reducers/CarouselReducer";
-import { FilmReducer } from './reducers/FilmReducer';
-import { CinemaReducer } from './reducers/CinemaReducer';
-import { UserManageReducer } from "./reducers/UserManageReducer";
-import { TicketReducer } from "./reducers/TicketReducer";
-import { LoadingReducer } from "./reducers/LoadingReducer";
+import { CarouselReducer } from "./reducers/CarouselReducer.js";
+import { FilmReducer } from './reducers/FilmReducer.js';
+import { CinemaReducer } from './reducers/CinemaReducer.js';
+import { UserManageReducer } from "./reducers/UserManageReducer.js";
+import { TicketReducer } from "./reducers/TicketReducer.js";
+import { LoadingReducer } from "./reducers/LoadingReducer.js";
 const rootReducer = combineReducers({
     CarouselReducer,
     FilmReducer,

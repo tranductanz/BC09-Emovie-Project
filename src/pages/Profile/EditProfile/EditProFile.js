@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { NavLink } from 'react-router-dom';
 import LogoBrand from '../../../assets/image/Logo.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatNguoiDungAction } from '../../../redux/actions/UserManageAction';
+import { capNhatNguoiDungAction } from '../../../redux/actions/UserManageAction.js';
 
 const EditProFile = (props) => {
 

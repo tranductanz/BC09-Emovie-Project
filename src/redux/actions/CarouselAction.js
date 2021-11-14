@@ -1,6 +1,6 @@
 import axios from "axios";
-import { DOMAIN, TOKENCYBERSOFT } from "../../util/config";
-import { SET_CAROUSEL } from "./types/actionTypes";
+import { DOMAIN, TOKENCYBERSOFT } from "../../util/config.js";
+import { SET_CAROUSEL } from "./types/actionTypes.js";
 
 
 

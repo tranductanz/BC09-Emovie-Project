@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../../../../src/assets/image/Logo.png';
 import { history } from '../../../../App';
-import { layThongTinNguoiDungAction } from '../../../../redux/actions/UserManageAction';
-import { TOKEN } from '../../../../util/config';
+import { layThongTinNguoiDungAction } from '../../../../redux/actions/UserManageAction.js';
+import { TOKEN } from '../../../../util/config.js';
 const Header = (props) => {
     const handleLogout = () => {
         localStorage.clear();

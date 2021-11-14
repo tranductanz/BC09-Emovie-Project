@@ -1,8 +1,8 @@
 import { Box } from '@mui/system';
 import React, { Fragment } from 'react'
 import { Route } from 'react-router';
-import FooterPage from './Layout/Footer/Footer';
-import Header from './Layout/Header/Header';
+import FooterPage from './Layout/Footer/Footer.js';
+import Header from './Layout/Header/Header.js';
 import HomeCarousel from './Layout/HomeCarousel/HomeCarousel';
 
 export const HomeTemplate = (props) => {
