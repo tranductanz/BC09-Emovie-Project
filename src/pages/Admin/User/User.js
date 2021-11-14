@@ -93,11 +93,11 @@ function Users() {
         {
             title: 'Loai Nguoi Dung',
             dataIndex: 'maLoaiNguoiDung',
-            width: 50,
+            width: 100,
             sorter: (a, b) => {
-                let tenPhimA = a.tenPhim.toLowerCase().trim();
-                let tenPhimB = b.tenPhim.toLowerCase().trim();
-                if (tenPhimA > tenPhimB) {
+                let maLoaiNguoiDungA = a.maLoaiNguoiDung.toLowerCase().trim();
+                let maLoaiNguoiDungB = b.maLoaiNguoiDung.toLowerCase().trim();
+                if (maLoaiNguoiDungA > maLoaiNguoiDungB) {
                     return 1;
                 }
                 return -1;
@@ -112,10 +112,10 @@ function Users() {
     const { Search } = Input;
 
 
-    const onSearch = value => {
-        // console.log(value);
+    const onSearch = tuKhoa => {
+        console.log(tuKhoa);
         // //API
-        // dispatch(layDanhSachPhimAction(value));
+        dispatch(layDanhSachListNguoiDungAction(tuKhoa));
     };
     return (
         <div>
