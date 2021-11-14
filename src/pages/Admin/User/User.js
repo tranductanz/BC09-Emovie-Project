@@ -7,13 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/FilmAction';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
-import { layDanhSachListNguoiDungAction } from '../../../redux/actions/UserManageAction';
+import { layDanhSachListNguoiDungAction, xoaNguoiDungAction } from '../../../redux/actions/UserManageAction';
 function Users() {
 
     // const { arrFilmDefault } = useSelector(state => state.FilmReducer);
     const { danhSachNguoiDung } = useSelector(state => state.UserManageReducer);
     const dispatch = useDispatch();
-    console.log({ danhSachNguoiDung })
     useEffect(() => {
         dispatch(layDanhSachListNguoiDungAction());
     }, [])
@@ -79,9 +78,9 @@ function Users() {
                 return <Fragment key={index}>
                     <NavLink key={1} style={{ color: 'blue' }} to={`/admin/users/edit/${user.taiKhoan}`} className="text-black text-2xl mr-2"><EditOutlined /></NavLink>
                     <span onClick={() => {
-                        if (window.confirm('Bạn có muốn chắc xoá phim' + user.taiKhoan)) {
+                        if (window.confirm('Bạn có muốn chắc xoá user này' + user.taiKhoan)) {
                             //action
-                            // dispatch(xoaPhimAction(film.maPhim))
+                            dispatch(xoaNguoiDungAction(user.taiKhoan));
                         }
                     }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl mr-2"><DeleteOutlined /></span>
                     <NavLink onClick={() => {
@@ -131,7 +130,7 @@ function Users() {
                 size="large"
                 onSearch={onSearch}
             />
-            <Table rowKey={"maPhim"} columns={columns} dataSource={data} onChange={onChange} />
+            <Table rowKey={"taiKhoan"} columns={columns} dataSource={data} onChange={onChange} />
         </div>
     )
 }

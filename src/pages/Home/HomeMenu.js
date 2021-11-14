@@ -9,9 +9,7 @@ const { TabPane } = Tabs;
 
 const HomeMenu = (props) => {
 
-    useEffect(() => {
-        console.log(props);
-    })
+
 
     const [state, setState] = useState({
         tabPosition: 'left',

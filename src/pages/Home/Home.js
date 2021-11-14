@@ -12,7 +12,7 @@ const Home = (props) => {
 
     const { arrFilm } = useSelector(state => state.FilmReducer)
     const { heThongRapChieu } = useSelector(state => state.CinemaReducer);
-    console.log(arrFilm)
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(layDanhSachPhimAction());

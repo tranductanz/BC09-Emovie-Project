@@ -23,12 +23,10 @@ const EditProFile = (props) => {
         },
 
         onSubmit: values => {
-            console.log(values, 'values Submit');
             dispatch(capNhatNguoiDungAction(values));
         }
     })
 
-    console.log({ fullInfoNguoiDung })
 
     const dispatch = useDispatch();
     return (

@@ -105,6 +105,7 @@ export const layFullInfoNguoiDungAction = (taiKhoan) => {
                 type: SET_FULL_INFO_NGUOI_DUNG,
                 fullInfoNguoiDung: result.data.content,
             })
+
         } catch (err) {
             console.log(err.response?.data);
         }
@@ -115,7 +116,7 @@ export const layFullInfoNguoiDungAction = (taiKhoan) => {
 export const capNhatNguoiDungAction = (thongTinNguoiDung) => {
     return async dispatch => {
         try {
-            const result = axios({
+            const result = await axios({
                 url: `${DOMAIN}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
                 method: 'PUT',
                 data: thongTinNguoiDung,
@@ -124,8 +125,12 @@ export const capNhatNguoiDungAction = (thongTinNguoiDung) => {
                     Authorization: "Bearer " + localStorage.getItem(TOKEN),
                 }
             })
+            if (result.data.statusCode === 200) {
+                alert('Cập nhật thành công');
+                history.push('/admin/users');
+                dispatch(layDanhSachListNguoiDungAction);
+            }
             console.log({ result });
-            alert('Cập nhật thành công');
         }
         catch (err) {
             console.log(err.response?.data);
@@ -175,7 +180,7 @@ export const layDanhSachListNguoiDungAction = (tuKhoa = '') => {
                         TokenCybersoft: TOKENCYBERSOFT,
                     }
                 })
-                console.log(result);
+
                 if (result.data.statusCode === 200) {
                     dispatch({
                         type: SET_DANH_SACH_NGUOI_DUNG,
@@ -188,5 +193,32 @@ export const layDanhSachListNguoiDungAction = (tuKhoa = '') => {
             }
         }
 
+    }
+}
+
+export const xoaNguoiDungAction = (taiKhoan) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/XoaNguoiDung`,
+                method: 'DELETE',
+                params: {
+                    TaiKhoan: taiKhoan
+                },
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                    Authorization: "Bearer " + localStorage.getItem(TOKEN),
+                }
+            })
+            console.log({ result });
+            if (result.data.statusCode === 200) {
+                alert("Xoá User thành công");
+                history.push('/admin/users')
+                dispatch(layDanhSachListNguoiDungAction());
+            }
+        }
+        catch (err) {
+            console.log(err.response?.data);
+        }
     }
 }

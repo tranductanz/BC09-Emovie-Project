@@ -15,6 +15,8 @@ import { useDispatch } from 'react-redux';
 import { themPhimUploadHinhAction } from '../../../../redux/actions/FilmAction';
 import { DOMAIN, GROUP_ID, TOKEN, TOKENCYBERSOFT } from '../../../../util/config';
 import axios from 'axios';
+import { history } from '../../../../App';
+import { layDanhSachListNguoiDungAction } from '../../../../redux/actions/UserManageAction';
 
 const AddUser = () => {
     const [componentSize, setComponentSize] = useState('default');
@@ -56,7 +58,7 @@ const AddUser = () => {
             taiKhoan: "",
             matKhau: "",
             email: "",
-            soDt: 0,
+            soDT: '',
             maNhom: GROUP_ID,
             maLoaiNguoiDung: '',
             hoTen: '',
@@ -75,6 +77,11 @@ const AddUser = () => {
                         Authorization: "Bearer " + localStorage.getItem(TOKEN),
                     }
                 })
+                if (result.data.statusCode === 200) {
+                    alert('Thêm mới user thành công');
+                    dispatch(layDanhSachListNguoiDungAction());
+                    history.push('/admin/users')
+                }
                 console.log(result);
             }
             catch (err) {
@@ -113,7 +120,7 @@ const AddUser = () => {
 
 
     const handleChangeNumber = (values) => {
-        formik.setFieldValue('soDt', values);
+        formik.setFieldValue('soDT', values);
     }
     return (
         <>
@@ -161,7 +168,7 @@ const AddUser = () => {
                 </Form.Item>
 
                 <Form.Item label="Số Điện Thoại">
-                    <InputNumber style={{ width: 150 }} min={0} name="soDt" onChange={handleChangeNumber} />
+                    <Input type="number" value={formik.values.soDT} name="soDT" onChange={formik.handleChange} />
                 </Form.Item>
 
 

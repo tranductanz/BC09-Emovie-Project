@@ -19,7 +19,7 @@ const Header = (props) => {
 
 
     const { userLogin } = useSelector(state => state.UserManageReducer);
-    console.log({ userLogin })
+
     return (
         <header className="p-4 bg-coolGray-100 text-coolGray-800 bg-opacity-40 bg-black text-white fixed w-full z-10">
             <div className="container flex justify-between h-16 mx-auto">
