@@ -16,6 +16,7 @@ const CheckoutTemplate = (props) => {
         //props.history,
         //props.match,
         return <Fragment>
+
             <Component {...propsRoute} />
         </Fragment>
     }} />

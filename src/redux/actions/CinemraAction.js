@@ -17,7 +17,6 @@ export const layDanhSachHeThongRapAction = () => {
                     TokenCybersoft: TOKENCYBERSOFT
                 }
             });
-            console.log(result, 'result');
             if (result.status === 200) {
                 dispatch({
                     type: SET_HE_THONG_RAP_CHIEU,

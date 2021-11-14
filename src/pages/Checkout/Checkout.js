@@ -30,7 +30,6 @@ function Checkout(props) {
         const action = TicketAction(props.match.params.id);
         dispatch(action);
     }, [])
-    console.log(chiTietPhongVe)
 
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
@@ -195,15 +194,12 @@ export default function (props) {
 function KetQuaDatVe(props) {
     const dispatch = useDispatch();
     const { thongTinNguoiDung } = useSelector(state => state.UserManageReducer);
-    const { userLogin } = useSelector(state => state.UserManageReducer)
 
 
     useEffect(() => {
         const action = layThongTinNguoiDungAction();
         dispatch(action);
     }, [])
-
-    console.log(thongTinNguoiDung, 'thongTinNguoiDung');
 
     const renderTicketItem = () => {
 
@@ -216,11 +212,11 @@ function KetQuaDatVe(props) {
                         <h2 className="text-gray-900 title-font font-extrabold text-xl">{ticket.tenPhim}</h2>
                         <p className="text-red-500 font-bold">{moment(ticket.ngayDat).format('hh:mm A - DD - MM - YYYY')}</p>
                         <p className="text-red-500 font-bold">Địa điểm : {seats.tenHeThongRap} - {seats.tenCumRap}</p>
-                        <p>{ticket.danhSachGhe.map((ghe, index) => {
-                            return <div className="grid grid-cols-2">
+                        {ticket.danhSachGhe.map((ghe, index) => {
+                            return <div key={index} className="grid grid-cols-2">
                                 Ghế bạn đặt : {ghe.tenGhe}
                             </div>
-                        })}</p>
+                        })}
                     </div>
                 </div>
             </div>
@@ -236,14 +232,6 @@ function KetQuaDatVe(props) {
                 </div>
                 <div className="flex flex-wrap -m-2">
                     {renderTicketItem()}
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </section>

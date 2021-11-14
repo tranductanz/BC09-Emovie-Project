@@ -46,7 +46,7 @@ function App() {
         <AdminTemplate path="/admin/users/addnew" exact Component={AddUser} />
         <AdminTemplate path="/admin/users" exact Component={Users} />
         <AdminTemplate path="/admin" exact Component={Users} />
-        <HomeTemplate path="/profile" Component={Profile} />
+        <CheckoutTemplate path="/profile" Component={Profile} />
         <HomeTemplate path="/contact" Component={Contact} />
         <HomeTemplate path="/news" Component={News} />
         <HomeTemplate path="/home" exact Component={Home} />

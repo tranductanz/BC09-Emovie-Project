@@ -7,66 +7,77 @@ import {
     DatePicker,
     InputNumber,
     Switch,
+    Select
 } from 'antd';
 import { useFormik } from 'formik';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { capNhatPhimAction, layThongTinPhimChinhSuaAction, themPhimUploadHinhAction } from '../../../../redux/actions/FilmAction';
-import { GROUP_ID } from '../../../../util/config';
+import { DOMAIN, GROUP_ID, TOKENCYBERSOFT } from '../../../../util/config';
+import { capNhatNguoiDungAction, layFullInfoNguoiDungAction } from '../../../../redux/actions/UserManageAction';
+import axios from 'axios';
 
 const EditUser = (props) => {
     const [componentSize, setComponentSize] = useState('default');
 
     // Để rỗng để lấy được hình cũ
-    const [imgSrc, setImgSrc] = useState('');
     const dispatch = useDispatch();
 
+
     //Lấy thông Tin Phim Chỉnh sửa
-    useEffect(() => {
-        let { id } = props.match.params;
-        dispatch(layThongTinPhimChinhSuaAction(id));
+    // useEffect(() => {
+    //     let { taiKhoan } = props.match.params;
+
+    //     dispatch(layFullInfoNguoiDungAction(taiKhoan));
+    //     console.log(taiKhoan);
+    //     console.log({ fullInfoNguoiDung })
+    // }, [])
+    // let { taiKhoan } = props.match.params;
+    // dispatch(layFullInfoNguoiDungAction(taiKhoan));  
+    useEffect(async () => {
+        let { taiKhoan } = props.match.params;
+        await dispatch(layFullInfoNguoiDungAction(taiKhoan))
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung`,
+                method: 'GET',
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                }
+            })
+            setState({
+                maLoaiNguoiDung: result.data.content
+            });
+        }
+        catch (err) {
+            console.log(err.response?.data);
+        }
 
     }, [])
 
-    const { thongTinPhimChinhSua } = useSelector(state => state.FilmReducer);
-    console.log({ thongTinPhimChinhSua });
+    const { fullInfoNguoiDung } = useSelector(state => state.UserManageReducer);
+    console.log({ fullInfoNguoiDung });
+
+
+
 
     const formik = useFormik({
         // Edit enable của Formik
         enableReinitialize: true,
         initialValues: {
-            maPhim: thongTinPhimChinhSua?.maPhim,
-            tenPhim: thongTinPhimChinhSua?.tenPhim,
-            trailer: thongTinPhimChinhSua?.trailer,
-            moTa: thongTinPhimChinhSua?.moTa,
-            ngayKhoiChieu: thongTinPhimChinhSua?.ngayKhoiChieu,
-            dangChieu: thongTinPhimChinhSua?.dangChieu,
-            sapChieu: thongTinPhimChinhSua?.sapChieu,
-            hot: thongTinPhimChinhSua?.hot,
-            danhGia: thongTinPhimChinhSua?.danhGia,
-            hinhAnh: null,
+            taiKhoan: fullInfoNguoiDung.taiKhoan,
+            matKhau: fullInfoNguoiDung.matKhau,
+            email: fullInfoNguoiDung.email,
+            soDT: fullInfoNguoiDung.soDT,
             maNhom: GROUP_ID,
+            maLoaiNguoiDung: fullInfoNguoiDung.maLoaiNguoiDung,
+            hoTen: fullInfoNguoiDung.hoTen,
         },
         onSubmit: (values) => {
             console.log({ values })
-
-            //! Tạo đối tượng để action
-            let formData = new FormData();
-            // formData.append('tenPhim', formik.values.tenPhim)
-            // Vòng lặp chạy Submit Form
-            for (let key in values) {
-
-                if (key !== ' hinhAnh') {
-                    formData.append(key, values[key]);
-                }
-                else {
-                    if (values.hinhAnh !== null) {
-                        formData.append('File', values.hinhAnh, values.hinhAnh.name);
-                    }
-                }
-            }
+            dispatch(capNhatNguoiDungAction(values));
             //Gọi API
-            dispatch(capNhatPhimAction(formData))
+
         }
     })
 
@@ -74,48 +85,29 @@ const EditUser = (props) => {
         setComponentSize(size);
     };
 
+    const [state, setState] = useState({
+        maLoaiNguoiDung: [],
+    })
 
-    const handleChangeDatePicker = (value) => {
-        let ngayKhoiChieu = moment(value)
 
-        //! Fill vào Date Time
-        formik.setFieldValue('ngayKhoiChieu', ngayKhoiChieu)
-    }
-
-    // CLOSURE FUNCTION
-    const handleChangeSwitch = (name) => {
-        return (value) => {
-            formik.setFieldValue(name, value);
-        }
-
-    }
-
-    const handleChangeFile = async (event) => {
-        //Lấy file từ event
-        let file = event.target.files[0];
-
-        if (
-            file.type === 'image/jpeg' ||
-            file.type === 'image/jpg' ||
-            file.type === 'image/gif' ||
-            file.type === 'image/png'
-        ) {
-            //Đem dữ liệu lưu vào formik
-            await formik.setFieldValue('hinhAnh', file);
-            //Đọc file preview hình ảnh
-            let reader = new FileReader();
-            //Syntax đọc thẻ img
-            reader.readAsDataURL(file);
-
-            // Side Effect Bất đồng bộ
-            reader.onload = (e) => {
-                setImgSrc(e.target.result);
+    const convertChangeSelect = (values) => {
+        return state.maLoaiNguoiDung.map((maLoai, index) => {
+            return {
+                label: maLoai.tenLoai,
+                value: maLoai.maLoaiNguoiDung,
             }
-        }
-
-
+        })
     }
-    const dateFormat = 'DD/MM/YYYY';
+
+    const handleChangeSelect = (values) => {
+        console.log(values);
+        formik.setFieldValue('maLoaiNguoiDung', values);
+    }
+
+
+    const handleChangeNumber = (values) => {
+        formik.setFieldValue('soDT', values);
+    }
 
     return (
         <>
@@ -143,70 +135,36 @@ const EditUser = (props) => {
                     </Radio.Group>
                 </Form.Item>
 
-                {/* Tên Phim */}
-                <Form.Item label="Tên Phim">
-                    <Input name="tenPhim" value={formik.values.tenPhim} onChange={formik.handleChange} />
+                {/* Tên TK */}
+                <Form.Item label="Tên Tài Khoản">
+                    <Input value={formik.values.taiKhoan} name="taiKhoan" onChange={formik.handleChange} />
                 </Form.Item>
 
-                {/* Trailer */}
-                <Form.Item label="Trailer">
-                    <Input name="trailer" value={formik.values.trailer} onChange={formik.handleChange} />
+                {/* Mật Khẩu */}
+                <Form.Item label="Mật Khẩu">
+                    <Input value={formik.values.matKhau} name="matKhau" onChange={formik.handleChange} />
                 </Form.Item>
 
-                {/* Mô tả */}
-                <Form.Item label="Mô tả">
-                    <Input name="moTa" value={formik.values.moTa} onChange={formik.handleChange} />
+                <Form.Item label="Họ và Tên">
+                    <Input value={formik.values.hoTen} name="hoTen" onChange={formik.handleChange} />
                 </Form.Item>
 
-                {/* Ngày khởi chiếu */}
-                <Form.Item label="Ngày khởi chiếu">
-                    <DatePicker
-                        allowClear={false}
-
-                        // name="ngayKhoiChieu"
-                        onChange={handleChangeDatePicker}
-                        // format={dateFormat}
-                        format='DD/MM/YYYY'
-                        value={moment(formik.values.ngayKhoiChieu)}
-
-                    // defaultValue={moment(formik.values.ngayKhoiChieu, dateFormat)}
-
-                    />
+                {/* Email */}
+                <Form.Item label="Email">
+                    <Input value={formik.values.email} name="email" onChange={formik.handleChange} />
                 </Form.Item>
 
-                {/* Đang chiếu */}
-                <Form.Item label="Đang chiếu" valuePropName="checked">
-                    <Switch checked={formik.values.dangChieu} name="dangChieu" onChange={handleChangeSwitch('dangChieu')} />
-                </Form.Item>
-
-                {/* Sắp chiếu */}
-                <Form.Item label="Sắp chiếu" valuePropName="checked">
-                    <Switch checked={formik.values.sapChieu} name="sapChieu" onChange={handleChangeSwitch('sapChieu')} />
-                </Form.Item>
-
-                {/* Hot ? True False */}
-                <Form.Item label="Hot" valuePropName="checked">
-                    <Switch checked={formik.values.hot} name="hot" onChange={handleChangeSwitch('hot')} />
+                <Form.Item label="Số Điện Thoại">
+                    <Input type="number" value={formik.values.soDT} name="soDT" onChange={formik.handleChange} />
                 </Form.Item>
 
 
-                {/* Rating */}
-                <Form.Item label="Đánh giá số sao">
-                    <InputNumber min={1} max={10} onChange={handleChangeSwitch('danhGia')} />
-                </Form.Item>
-
-                {/* Upload Image */}
-                <Form.Item className="mb-5" label="Hình ảnh">
-                    <input
-                        accept="image/png, image/jpeg, image/gif, image/png"
-                        type="file" onChange={handleChangeFile} />
-
-                    {/*Để hình preview */}
-                    <img className="mt-5" width={150} height={150} src={imgSrc === '' ? thongTinPhimChinhSua.hinhAnh : imgSrc} alt='...' />
+                <Form.Item label="Loại Người Dùng">
+                    <Select value={formik.values.maLoaiNguoiDung} options={convertChangeSelect()} onChange={handleChangeSelect} placeholder="Chọn loại người dùng" />
                 </Form.Item>
 
                 <Form.Item label="Tác vụ">
-                    <button type="submit" className="bg-blue-300 text-white p-2">Cập nhật</button>
+                    <button type="submit" className="bg-blue-300 text-white p-2">Cập Nhật</button>
                 </Form.Item>
             </Form>
         </>
