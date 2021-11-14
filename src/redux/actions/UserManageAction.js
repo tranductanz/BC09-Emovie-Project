@@ -135,29 +135,58 @@ export const capNhatNguoiDungAction = (thongTinNguoiDung) => {
 
 
 
-export const layDanhSachListNguoiDungAction = () => {
+export const layDanhSachListNguoiDungAction = (tuKhoa = '') => {
     return async dispatch => {
-        try {
-            const result = await axios({
-                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung`,
-                method: 'GET',
-                params: {
-                    MaNhom: GROUP_ID
-                },
-                headers: {
-                    TokenCybersoft: TOKENCYBERSOFT,
-                }
-            })
-            console.log(result);
-            if (result.data.statusCode === 200) {
-                dispatch({
-                    type: SET_DANH_SACH_NGUOI_DUNG,
-                    danhSachNguoiDung: result.data.content,
+        if (tuKhoa.trim() != '') {
+            try {
+                const result = await axios({
+                    url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung`,
+                    method: 'GET',
+                    params: {
+                        MaNhom: GROUP_ID,
+                        tuKhoa: tuKhoa,
+                    },
+
+                    headers: {
+                        TokenCybersoft: TOKENCYBERSOFT,
+                    }
                 })
+                console.log(result);
+                if (result.data.statusCode === 200) {
+                    dispatch({
+                        type: SET_DANH_SACH_NGUOI_DUNG,
+                        danhSachNguoiDung: result.data.content,
+                    })
+                }
+            }
+            catch (err) {
+                console.log(err.response?.data);
             }
         }
-        catch (err) {
-            console.log(err.response?.data);
+        else {
+            try {
+                const result = await axios({
+                    url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung`,
+                    method: 'GET',
+                    params: {
+                        MaNhom: GROUP_ID
+                    },
+                    headers: {
+                        TokenCybersoft: TOKENCYBERSOFT,
+                    }
+                })
+                console.log(result);
+                if (result.data.statusCode === 200) {
+                    dispatch({
+                        type: SET_DANH_SACH_NGUOI_DUNG,
+                        danhSachNguoiDung: result.data.content,
+                    })
+                }
+            }
+            catch (err) {
+                console.log(err.response?.data);
+            }
         }
+
     }
 }
