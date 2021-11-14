@@ -8,6 +8,7 @@ import { SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM_CHINH_SUA } from "./types/action
 // https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=black
 export const layDanhSachPhimAction = (tenPhim = '') => {
     return async (dispatch) => {
+        // Tìm phim
         if (tenPhim.trim() != '') {
             try {
                 const result = await axios({
