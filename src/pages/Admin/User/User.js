@@ -20,7 +20,7 @@ function Users() {
 
     const columns = [
         {
-            title: 'Tai Khoan',
+            title: 'Tài Khoản',
             dataIndex: 'taiKhoan',
             width: 50,
             sorter: (a, b) => {
@@ -34,12 +34,12 @@ function Users() {
             sortDirections: ['descend', 'ascend'],
         },
         {
-            title: 'Mat Khau',
+            title: 'Mật Khẩu',
             dataIndex: 'matKhau',
             width: 50,
         },
         {
-            title: 'Ho va Ten',
+            title: 'Họ và Tên',
             dataIndex: 'hoTen',
             width: 50,
             sorter: (a, b) => {
@@ -67,31 +67,31 @@ function Users() {
             sortDirections: ['descend', 'ascend'],
         },
         {
-            title: 'So Dien Thoai',
+            title: 'Số Điện Thoại',
             dataIndex: 'soDt',
             width: 10,
         },
         {
-            title: 'Hanh Dong',
+            title: 'Hành Động',
             dataIndex: 'hanhDong',
             width: 100,
-            render: (text, film, index) => {
+            render: (text, user, index) => {
                 return <Fragment key={index}>
-                    <NavLink key={1} style={{ color: 'blue' }} to={`/admin/films/edit/${film.maPhim}`} className="text-black text-2xl mr-2"><EditOutlined /></NavLink>
+                    <NavLink key={1} style={{ color: 'blue' }} to={`/admin/users/edit/${user.taiKhoan}`} className="text-black text-2xl mr-2"><EditOutlined /></NavLink>
                     <span onClick={() => {
-                        if (window.confirm('Bạn có muốn chắc xoá phim' + film.tenPhim)) {
+                        if (window.confirm('Bạn có muốn chắc xoá phim' + user.taiKhoan)) {
                             //action
-                            dispatch(xoaPhimAction(film.maPhim))
+                            // dispatch(xoaPhimAction(film.maPhim))
                         }
                     }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl mr-2"><DeleteOutlined /></span>
                     <NavLink onClick={() => {
-                        localStorage.setItem('filmParams', JSON.stringify(film));
-                    }} className="text-2xl" style={{ color: 'green' }} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`}><CalendarOutlined /></NavLink>
+                        // localStorage.setItem('filmParams', JSON.stringify(film));
+                    }} className="text-2xl" style={{ color: 'green' }} to={`/admin/films/showtime/${user.taiKhoan}`}><CalendarOutlined /></NavLink>
                 </Fragment>
             }
         },
         {
-            title: 'Loai Nguoi Dung',
+            title: 'Loại Người Dùng',
             dataIndex: 'maLoaiNguoiDung',
             width: 100,
             sorter: (a, b) => {
