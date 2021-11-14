@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { Table } from 'antd';
 import { Input, Space } from 'antd';
-import { AudioOutlined, DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
+import { AudioOutlined, CalendarOutlined, DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/FilmAction';
@@ -82,7 +82,10 @@ function Films() {
                             //action
                             dispatch(xoaPhimAction(film.maPhim))
                         }
-                    }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl"><DeleteOutlined /></span>
+                    }} key={2} style={{ color: 'red', cursor: 'pointer' }} className="text-white text-2xl mr-2"><DeleteOutlined /></span>
+                    <NavLink onClick={() => {
+                        localStorage.setItem('filmParams', JSON.stringify(film));
+                    }} className="text-2xl" style={{ color: 'green' }} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`}><CalendarOutlined /></NavLink>
                 </Fragment>
             }
         },
@@ -103,7 +106,7 @@ function Films() {
         <div>
 
             <h3 className="text-4xl">Quản lý Phim</h3>
-            <Button onClick={() => {
+            <Button type="primary" danger onClick={() => {
                 history.push('/admin/films/addnew');
             }} className="mb-5">Thêm Phim</Button>
             <Search

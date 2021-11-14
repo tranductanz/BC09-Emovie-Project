@@ -1,6 +1,6 @@
 import axios from "axios";
-import { DOMAIN, TOKEN, TOKENCYBERSOFT } from "../../util/config";
-import { NGUOI_DUNG_DANG_KY, NGUOI_DUNG_DANG_NHAP, SET_THONG_TIN_NGUOI_DUNG } from "./types/actionTypes";
+import { DOMAIN, GROUP_ID, TOKEN, TOKENCYBERSOFT } from "../../util/config";
+import { NGUOI_DUNG_DANG_KY, NGUOI_DUNG_DANG_NHAP, SET_DANH_SACH_NGUOI_DUNG, SET_FULL_INFO_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from "./types/actionTypes";
 import { history } from "../../App";
 import swal from 'sweetalert';
 
@@ -86,3 +86,78 @@ export const layThongTinNguoiDungAction = () => {
     }
 }
 
+
+export const layFullInfoNguoiDungAction = (taiKhoan) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/LayThongTinNguoiDung`,
+                method: 'POST',
+                params: {
+                    taiKhoan: taiKhoan,
+                },
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                    Authorization: "Bearer " + localStorage.getItem(TOKEN),
+                }
+            })
+            dispatch({
+                type: SET_FULL_INFO_NGUOI_DUNG,
+                fullInfoNguoiDung: result.data.content,
+            })
+        } catch (err) {
+            console.log(err.response?.data);
+        }
+    }
+}
+
+
+export const capNhatNguoiDungAction = (thongTinNguoiDung) => {
+    return async dispatch => {
+        try {
+            const result = axios({
+                url: `${DOMAIN}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+                method: 'PUT',
+                data: thongTinNguoiDung,
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                    Authorization: "Bearer " + localStorage.getItem(TOKEN),
+                }
+            })
+            console.log({ result });
+            alert('Cập nhật thành công');
+        }
+        catch (err) {
+            console.log(err.response?.data);
+        }
+    }
+}
+
+
+
+export const layDanhSachListNguoiDungAction = () => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: `https://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung`,
+                method: 'GET',
+                params: {
+                    MaNhom: GROUP_ID
+                },
+                headers: {
+                    TokenCybersoft: TOKENCYBERSOFT,
+                }
+            })
+            console.log(result);
+            if (result.data.statusCode === 200) {
+                dispatch({
+                    type: SET_DANH_SACH_NGUOI_DUNG,
+                    danhSachNguoiDung: result.data.content,
+                })
+            }
+        }
+        catch (err) {
+            console.log(err.response?.data);
+        }
+    }
+}

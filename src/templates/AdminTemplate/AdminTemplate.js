@@ -31,38 +31,39 @@ const AdminTemplate = (props) => {
 
         return <Fragment>
             <Layout style={{ minHeight: '100vh' }}>
+
                 <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                    <img src={LogoBrand} />
+                    <NavLink to="/">
+                        <img src={LogoBrand} />
+                    </NavLink>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            <NavLink to="/admin/users">Users</NavLink>
-                        </Menu.Item>
-                        <SubMenu key="sub1" icon={<FileOutlined />} title="User">
+                        <SubMenu key="sub1" icon={<FileOutlined />} title="Quan ly User">
+                            <Menu.Item key="8" icon={<FileOutlined />}>
+                                <NavLink to="/admin/users">Duyệt User</NavLink>
+                            </Menu.Item>
+
+                            <Menu.Item key="9" icon={<FileOutlined />}>
+                                <NavLink to="/admin/users/addnew">Thêm User</NavLink>
+                            </Menu.Item>
+                        </SubMenu>
+                        <SubMenu key="sub2" icon={<FileOutlined />} title="Chức Năng Phim">
                             <Menu.Item key="10" icon={<FileOutlined />}>
-                                <NavLink to="/admin/films">Films</NavLink>
+                                <NavLink to="/admin/films">Duyệt Film</NavLink>
                             </Menu.Item>
 
                             <Menu.Item key="11" icon={<FileOutlined />}>
-                                <NavLink to="/admin/films/addnew">Add News</NavLink>
+                                <NavLink to="/admin/films/addnew">Thêm Mới</NavLink>
                             </Menu.Item>
                         </SubMenu>
-                        <Menu.Item key="4" icon={<DesktopOutlined />}>
-                            <NavLink to="/admin/showtime">Showtime</NavLink>
-                        </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
                     <Header className="site-layout-background" style={{ padding: 0 }} />
                     <Content style={{ margin: '0 16px' }}>
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                        </Breadcrumb>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                             <Component {...propsRoute} />
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
                 </Layout>
             </Layout>
         </Fragment>
