@@ -37,7 +37,7 @@ const AdminTemplate = (props) => {
                         <img src={LogoBrand} />
                     </NavLink>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <SubMenu key="sub1" icon={<FileOutlined />} title="Quan ly User">
+                        <SubMenu key="sub1" icon={<FileOutlined />} title="Quản Lý User">
                             <Menu.Item key="8" icon={<FileOutlined />}>
                                 <NavLink to="/admin/users">Duyệt User</NavLink>
                             </Menu.Item>
