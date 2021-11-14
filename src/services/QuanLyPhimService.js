@@ -1,4 +1,4 @@
-import { baseService } from './baseService';
+import { baseService } from './baseService.js';
 
 
 export class QuanLyPhimService extends baseService {

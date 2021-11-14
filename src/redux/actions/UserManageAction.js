@@ -1,6 +1,6 @@
 import axios from "axios";
-import { DOMAIN, GROUP_ID, TOKEN, TOKENCYBERSOFT } from "../../util/config";
-import { NGUOI_DUNG_DANG_KY, NGUOI_DUNG_DANG_NHAP, SET_DANH_SACH_NGUOI_DUNG, SET_FULL_INFO_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from "./types/actionTypes";
+import { DOMAIN, GROUP_ID, TOKEN, TOKENCYBERSOFT } from "../../util/config.js";
+import { NGUOI_DUNG_DANG_KY, NGUOI_DUNG_DANG_NHAP, SET_DANH_SACH_NGUOI_DUNG, SET_FULL_INFO_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from "./types/actionTypes.js";
 import { history } from "../../App";
 import swal from 'sweetalert';
 

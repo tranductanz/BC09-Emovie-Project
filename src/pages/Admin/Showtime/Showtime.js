@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Layout, Menu, Breadcrumb, Cascader, Form, DatePicker, Space, InputNumber, Select } from 'antd';
 import axios from 'axios';
-import { DOMAIN, TOKEN, TOKENCYBERSOFT } from '../../../util/config';
+import { DOMAIN, TOKEN, TOKENCYBERSOFT } from '../../../util/config.js';
 import { useFormik } from 'formik';
 import moment from 'moment';
 const { Header, Content, Footer, Sider } = Layout;

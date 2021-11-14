@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import Film from "../Film/Film";
+import Film from "../Film/Film.js";
 import Film_Flip from "../Film/Film_Flip";
 import styleSlick from './MultipleRowSlick.module.css';
 import { Button } from 'antd';
-import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/actions/types/actionTypes";
+import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/actions/types/actionTypes.js";
 import { useDispatch, useSelector } from "react-redux";
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;

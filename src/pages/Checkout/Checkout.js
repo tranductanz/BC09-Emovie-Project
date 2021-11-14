@@ -2,15 +2,15 @@ import React from 'react'
 import { memo } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { datVeAction, TicketAction } from '../../redux/actions/TicketAction';
+import { datVeAction, TicketAction } from '../../redux/actions/TicketAction.js';
 import styles from './Checkout.module.css'
 import './Checkout.css'
 import { CheckOutlined, CloseSquareOutlined, UserOutlined } from '@ant-design/icons';
-import { DAT_VE } from '../../redux/actions/types/actionTypes';
+import { DAT_VE } from '../../redux/actions/types/actionTypes.js';
 import _ from 'lodash';
-import { ThongTinDatVe, ThongTinNguoiDung } from '../../_core/models/ThongTinDatVe';
+import { ThongTinDatVe, ThongTinNguoiDung } from '../../_core/models/ThongTinDatVe.js';
 import { Tabs } from 'antd';
-import { layThongTinNguoiDungAction } from '../../redux/actions/UserManageAction';
+import { layThongTinNguoiDungAction } from '../../redux/actions/UserManageAction.js';
 import moment from 'moment';
 
 const { TabPane } = Tabs;

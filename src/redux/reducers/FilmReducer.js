@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { SET_CHI_TIET_FILM, SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU, SET_LICH_CHIEU_FILM, SET_THONG_TIN_PHIM_CHINH_SUA } from "../actions/types/actionTypes";
+import { SET_CHI_TIET_FILM, SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU, SET_LICH_CHIEU_FILM, SET_THONG_TIN_PHIM_CHINH_SUA } from "../actions/types/actionTypes.js";
 
 const initialState = {
     arrFilm: [

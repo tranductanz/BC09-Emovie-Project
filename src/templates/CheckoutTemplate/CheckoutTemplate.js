@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Redirect, Route } from 'react-router';
-import { USER_LOGIN } from '../../util/config';
+import { USER_LOGIN } from '../../util/config.js';
 
 const CheckoutTemplate = (props) => {
     // tra ve path, exact, Component

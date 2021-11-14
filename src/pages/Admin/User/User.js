@@ -4,10 +4,10 @@ import { Input, Space } from 'antd';
 import { AudioOutlined, CalendarOutlined, DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/FilmAction';
+import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/FilmAction.js';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
-import { layDanhSachListNguoiDungAction } from '../../../redux/actions/UserManageAction';
+import { layDanhSachListNguoiDungAction } from '../../../redux/actions/UserManageAction.js';
 function Users() {
 
     // const { arrFilmDefault } = useSelector(state => state.FilmReducer);

@@ -1,8 +1,8 @@
 import axios from "axios";
-import { DOMAIN, TOKEN, TOKENCYBERSOFT } from "../../util/config";
-import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
-import { DISPLAY_LOADING_ACTION, HIDE_LOADING_ACTION } from "./LoadingAction";
-import { DAT_VE, NGUOI_DUNG_DAT_VE } from "./types/actionTypes";
+import { DOMAIN, TOKEN, TOKENCYBERSOFT } from "../../util/config.js";
+import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe.js";
+import { DISPLAY_LOADING_ACTION, HIDE_LOADING_ACTION } from "./LoadingAction.js";
+import { DAT_VE, NGUOI_DUNG_DAT_VE } from "./types/actionTypes.js";
 import swal from 'sweetalert';
 
 

@@ -1,4 +1,4 @@
-import { SET_HE_THONG_RAP_CHIEU } from "../actions/types/actionTypes";
+import { SET_HE_THONG_RAP_CHIEU } from "../actions/types/actionTypes.js";
 
 const initialState = {
     heThongRapChieu: []

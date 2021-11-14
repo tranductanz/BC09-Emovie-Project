@@ -11,8 +11,8 @@ import {
 import { useFormik } from 'formik';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatPhimAction, layThongTinPhimChinhSuaAction, themPhimUploadHinhAction } from '../../../../redux/actions/FilmAction';
-import { GROUP_ID } from '../../../../util/config';
+import { capNhatPhimAction, layThongTinPhimChinhSuaAction, themPhimUploadHinhAction } from '../../../../redux/actions/FilmAction.js';
+import { GROUP_ID } from '../../../../util/config.js';
 
 const EditFilm = (props) => {
     const [componentSize, setComponentSize] = useState('default');

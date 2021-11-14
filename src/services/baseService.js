@@ -1,5 +1,5 @@
 import { Axios } from "axios"
-import { DOMAIN, TOKENCYBERSOFT } from "../util/config"
+import { DOMAIN, TOKENCYBERSOFT } from "../util/config.js"
 
 
 export class baseService {

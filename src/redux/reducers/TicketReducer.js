@@ -1,5 +1,5 @@
-import { DAT_VE, NGUOI_DUNG_DAT_VE } from "../actions/types/actionTypes";
-import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe";
+import { DAT_VE, NGUOI_DUNG_DAT_VE } from "../actions/types/actionTypes.js";
+import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe.js";
 const initialState = {
     chiTietPhongVe: new ThongTinLichChieu(),
     danhSachGheDangDat: [],
