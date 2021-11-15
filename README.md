@@ -13,7 +13,7 @@ Trần Đức Tân :
 
 - Làm Toàn bộ Ui trang đặt vé
 
-- Làm Toàn bộ trang Admin Management
+- Làm Toàn bộ trang Admin Management ( UI and Features)
 
 Trần Đức Tâm :
 
