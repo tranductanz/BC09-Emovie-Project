@@ -1,7 +1,7 @@
 
 import React, { Fragment } from 'react'
 import LogoBrand from '../../assets/image/Logo.png'
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
     DesktopOutlined,
@@ -12,10 +12,16 @@ import {
 } from '@ant-design/icons';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { USER_LOGIN } from '../../util/config';
+import { useSelector } from 'react-redux';
+import { history } from '../../App';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 const AdminTemplate = (props) => {
+
+    const { userLogin } = useSelector(state => state.UserManageReducer);
+    console.log({ userLogin })
     // tra ve path, exact, Component
     //HOC
     const { Component, ...restProps } = props;
@@ -24,6 +30,19 @@ const AdminTemplate = (props) => {
     const onCollapse = collapsed => {
         setCollapsed(collapsed);
     }
+
+    if (!localStorage.getItem(USER_LOGIN)) {
+        return <Redirect to="/login" />
+    }
+    else if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
+        alert("Bạn Không Phải Admin, Bạn Không Có Đủ Quyền Truy Cập");
+        history.push('/');
+    }
+
+
+
+
+
     return <Route {...restProps} render={(propsRoute) => {
         //props.location,
         //props.history,

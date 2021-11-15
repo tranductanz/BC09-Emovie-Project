@@ -23,11 +23,15 @@ export const dangNhapAction = (thongTinDangNhap) => {
                     type: NGUOI_DUNG_DANG_NHAP,
                     thongTinDangNhap: result.data.content
                 })
+
             }
             console.log(result);
             history.goBack();
         } catch (err) {
-            console.log(err.response.data);
+            const wrongAcc = { ...err }
+            console.log(err.response?.data);
+            alert(wrongAcc.response?.data.message)
+
         }
     }
 }
@@ -218,7 +222,9 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             }
         }
         catch (err) {
-            console.log(err.response?.data);
+            const error = { ...err }
+            // console.log(err.response?.data);
+            alert(error.response?.data.content);
         }
     }
 }
