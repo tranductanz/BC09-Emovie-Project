@@ -11,6 +11,7 @@ import { layFullInfoNguoiDungAction, layThongTinNguoiDungAction } from '../../re
 
 
 export default function (props) {
+
     function callback(key) {
         console.log(key);
     }
@@ -20,7 +21,7 @@ export default function (props) {
             <TabPane tab="01. Chọn ghế và thanh toán" key="1">
                 <Profile {...props} />
             </TabPane>
-            <TabPane tab="02. Kết quả đặt vé" key="2">
+            <TabPane tab="02. Lịch sử đặt vé" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
         </Tabs>
@@ -78,18 +79,18 @@ function Profile(props) {
 
 function KetQuaDatVe(props) {
     const dispatch = useDispatch();
-    const { thongTinNguoiDung } = useSelector(state => state.UserManageReducer);
 
+    const { userLogin } = useSelector(state => state.UserManageReducer);
 
     useEffect(() => {
         const action = layThongTinNguoiDungAction();
         dispatch(action);
     }, [])
 
-    console.log(thongTinNguoiDung, 'thongTinNguoiDung');
-
+    const { thongTinNguoiDung } = useSelector(state => state.UserManageReducer);
     const renderTicketItem = () => {
 
+        console.log(thongTinNguoiDung, 'thongTinNguoiDung');
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             const seats = _.first(ticket.danhSachGhe);
             return <div key={index} className="p-2 lg:w-1/3 md:w-1/2 w-full">
@@ -99,11 +100,11 @@ function KetQuaDatVe(props) {
                         <h2 className="text-gray-900 title-font font-extrabold text-xl">{ticket.tenPhim}</h2>
                         <p className="text-red-500 font-bold">{moment(ticket.ngayDat).format('hh:mm A - DD - MM - YYYY')}</p>
                         <p className="text-red-500 font-bold">Địa điểm : {seats.tenHeThongRap} - {seats.tenCumRap}</p>
-                        <p>{ticket.danhSachGhe.map((ghe, index) => {
+                        {ticket.danhSachGhe.map((ghe, index) => {
                             return <div className="grid grid-cols-2">
                                 Ghế bạn đặt : {ghe.tenGhe}
                             </div>
-                        })}</p>
+                        })}
                     </div>
                 </div>
             </div>
@@ -114,7 +115,7 @@ function KetQuaDatVe(props) {
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
-                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-red-500">Lịch sử đặt vé khách hàng</h1>
+                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-red-500">Lịch sử đặt vé của {userLogin.hoTen}</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Mời bạn kiểm tra lại thông tin</p>
                 </div>
                 <div className="flex flex-wrap -m-2">

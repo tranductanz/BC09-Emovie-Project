@@ -39,7 +39,7 @@ const MultipleRows = (props) => {
     const dispatch = useDispatch();
     const renderFilms = () => {
         return props.arrFilm?.slice(0, 12).map((item, index) => {
-            return <div className={`${styleSlick['width-item']} mt-2`} key={index}>
+            return <div className={`${styleSlick['width-item']} mt-2 sm:${styleSlick['width-item']}`} key={index}>
                 {/* <Film phim={item} /> */}
                 <Film_Flip phim={item} />
             </div>
@@ -55,12 +55,23 @@ const MultipleRows = (props) => {
         speed: 500,
         rows: 1,
         slidesPerRow: 2,
-        variableWidth: true,
+        // variableWidth: true,
         nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-    };
+        prevArrow: <SamplePrevArrow />,
+        mobileFirst: true,
+        responsive: [{
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                centerMode: false,
+                centerPadding: "0x",
+                rows: 2,
+            }
+        }]
+    }
     return (
-        <div className="container">
+        <div className="container" >
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 50 }}>
                 <button
                     style={{ borderRadius: 35, borderWidth: 3, borderColor: 'black' }}
@@ -83,7 +94,7 @@ const MultipleRows = (props) => {
 
 
             </Slider>
-        </div>
+        </div >
     );
 
 }

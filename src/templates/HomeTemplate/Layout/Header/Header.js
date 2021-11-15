@@ -35,10 +35,10 @@ const Header = (props) => {
                         <NavLink style={{ textDecoration: 'none' }} activeClassName="border-b-2 border-white text-red-500" to="/admin" className="flex items-center px-4 text-white text-xl text-red-600 -mb-1 border-b-2 border-transparent hover:text-red-600">Đi đến trang ADMIN</NavLink>
                     </li>
                 </ul>
-                <div className="items-center flex-shrink-0 hidden lg:flex">
+                <div className="items-center flex-shrink-0 lg:flex">
 
                     {userLogin && localStorage.getItem(TOKEN) !== null ? <Fragment> <div
-                        className="self-center px-8 py-3 rounded text-white hover:text-red-600"><NavLink className="text-red-500 hover:text-red-800" to="/profile"><button>{userLogin.hoTen}</button></NavLink></div>
+                        className=" self-center px-8 py-3 rounded text-white hover:text-red-600"><NavLink className="text-red-500 hover:text-red-800" to="/profile"><button>{userLogin.hoTen}</button></NavLink></div>
                         <button onClick={handleLogout}>
                             Logout
                         </button>
@@ -52,11 +52,6 @@ const Header = (props) => {
                         </NavLink>
                     </Fragment>}
                 </div>
-                <button className="p-4 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 text-coolGray-800">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
             </div>
         </header>
 

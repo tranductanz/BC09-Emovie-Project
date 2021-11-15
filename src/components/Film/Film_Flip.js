@@ -7,7 +7,7 @@ const Film_Flip = (props) => {
     const { phim } = props;
 
     return (
-        <div className="flip-card mt-2">
+        <div className="flip-card mt-2 sm:display-none">
             <div className="flip-card-inner">
                 <div className="flip-card-front">
                     <img src={phim.hinhAnh} alt="Avatar" style={{ width: 300, height: 300 }} />
