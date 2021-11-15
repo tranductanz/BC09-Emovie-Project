@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Tên Thành Viên Nhóm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Trần Đức Tân
 
-## Available Scripts
+2) Trần Đức Tâm
 
-In the project directory, you can run:
 
-### `yarn start`
+# Phân Công Công Việc
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Trần Đức Tân :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Create UI Booking vé bao gồm (Home, Menu, Header, Footer)
 
-### `yarn test`
+- Làm Toàn bộ Ui trang đặt vé
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Làm Toàn bộ trang Admin Management
 
-### `yarn build`
+Trần Đức Tâm :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Làm chi tiết Phim
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Làm chức năng trang đặt vé 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Làm Login / Log Out
 
-### `yarn eject`
+- Hỗ trợ làm Admin Management
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# About
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Đồ án ReactJS là một trong những đồ án lớn tốt nghiệp khóa học Cybersoft. 
+Đây là đồ án về việc Đặt vé xem phim và Quản trị người dùng. Nó cung cấp các chức năng và giao diện cơ bản của một một dự án thông thường như:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Component Structure :
+- Các view được tổ chức dưới dạng components tận dụng life-cycle có thể sử dụng lại được nhiều. 
+- Sử dụng toàn bộ là Hook
+- Với tiêu chí là Dynamic nhất có thể
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Client-side (Trang đặt vé)
+Components:
+Carousel
+Search Bar
+Slider với các Components
+Trang thông tin chi tiết phim
+Chi tiết đặt vé - thông tin phòng vé
+Trang search result
+User Login Page
+User Profile
+Và nhiều Tính năng nổi bật khác ...
 
-## Learn More
+# User Management
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Thêm mới người dùng
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Xoá người dùng
 
-### Code Splitting
+Chỉnh sửa người dùng
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Truy cập danh sách film hiện có : 
 
-### Analyzing the Bundle Size
+- Thêm Film
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Sửa Film
 
-### Making a Progressive Web App
+- Xoá Film
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Tạo lịch chiếu cho film, liên kết đến Client-sdie
 
-### Advanced Configuration
+...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+# Các library sử dụng trong Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+React-redux
+Tailwind Css
+React Slick
+React router
+API cấp bởi Cybersoft.edu.vn
+...
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Đôi lời từ tác giả:
+Cảm ơn trung tâm Cybersoft đã hỗ trợ hoàn thành dự án này
+Cảm ơn bộ phận Back end đã cấp API cho web app Booking - Manage này
+Đây là một dự án được làm dưới sự hướng dẫn của trung tâm Cybersoft
+
+Dưới vị trí là 1 fresher, sẽ có những lỗi/bugs không thể tránh khỏi, dự án này có thể sẽ được update và cập nhật thêm nếu cần thiết
+
+Cảm ơn đã quan tâm - Dev nhỏ bé
+
+
